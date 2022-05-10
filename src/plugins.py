@@ -18,28 +18,27 @@ class Remoter(PaddlePlugin):
         # Example of remoter configuration
         #
         # remoter:
-        #   - script: resource/simple-network.py
-        #     requirements: resources/requirements.txt
+        #   - script: mnist/digit_classifier.py
+        #     requirements: mnist/requirements.txt
         #     others:
-        #       - resources/file-1.txt
-        #       - resources/file-2.txt
-        #     input-file: resources/input.txt
+        #       - mnist/weights.pth
+        #     input-file: mnist/data.txt
         #     output:
-        #       directory: resources
-        #       file: output.txt
+        #       directory: mnist/results
+        #       file: predicts.txt
         #
         #     machines:
         #       - user: admin
         #         password: secret
         #         host: localhost
-        #         working-dir: /home/project/venv/bin/python3
-        #         py-interpreter-path: /home/project/venv/bin/python3
+        #         working-dir: /home/mnist
+        #         py-interpreter-path: /usr/bin/python3
         #
         #       - user: admin
-        #         password: secret
-        #         host: otherhost
-        #         working-dir: /home/project/venv/bin/python3
-        #         py-interpreter-path: /home/project/venv/bin/python3`
+        #         password: supersecret
+        #         host: 192.168.0.10
+        #         working-dir: /home/mnist
+        #         py-interpreter-path: /usr/bin/python3
         #
         spec_root = project.config_spec.root
         remoter_config_spec = ArraySpecNode(
